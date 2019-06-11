@@ -31,7 +31,7 @@ csv 虽简单通用但有缺点，可借助[辅助工具](/tool/)优化）。
 
 ![Download extension](./crx.png)
 
-2. 打开这个[网站](http://www.webappbus.com/)，按照指示下载 **Chrome插件伴侣** 并安装刚才下载的 `Web-Scraper_v*.*.*.crx`
+2. 打开这个[网站](http://www.webappbus.com/)，按照指示下载 `Chrome插件伴侣` 并安装刚才下载的 `Web-Scraper_v*.*.*.crx`
 
 不管哪种安装方式，当你打开 Chrome 的开发者工具（Windows 按 f12 / Mac 按 command + alt + i），在最后看到 `Web Scraper` 选项卡时就表示安装成功啦~
 
@@ -40,6 +40,10 @@ csv 虽简单通用但有缺点，可借助[辅助工具](/tool/)优化）。
 ## Web Scraper 如何使用？
 文字不如图，图不如视频，下面是官方的三个视频教程，已加上双语字幕方便食用，追求原汁原味的同学请移步[官方页面](https://www.webscraper.io/tutorials)，当你看完并掌握之后，已足够应对 95% 的网站，希望了解更多细节可以查看[完整教程](/tutorial/)，[辅助工具](/tool/)也很有必要了解一下。
 
-那我什么都不想学只想直接用呢？
+1. [快速上手](https://www.bilibili.com/video/av55260570/)
+2. 分页抓取（翻译中）
+3. 多记录抓取（翻译中）
 
-好的也是可以的，[抓取配置](/sitemap/)里包含了常见网站的抓取配置，导入后就能直接开始抓取，更多网站将逐步添加，有兴趣有能力的同学请 [GitHub](https://github.com/onedayl/wst) PR 走起~
+(。・∀・)ノ 那我什么都不想学只想直接用呢？
+
+(╯‵□′)╯︵┻━┻ 我反手就是……也可以吧，[抓取配置](/sitemap/)里包含了常见网站的抓取配置，导入后就能直接开始抓取，更多网站将逐步添加，有兴趣有能力的同学请 [GitHub](https://github.com/onedayl/wst) PR 走起~
