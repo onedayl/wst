@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'Web Scraper Tricks',
-    description: 'Web Scraper 教程/sitemap/工具',
+    title: 'WS-TRICKS',
+    description: 'Web Scraper 从入门到 666',
     themeConfig: {
       nav: [
         { text: '快速上手', link: '/guide/' },
