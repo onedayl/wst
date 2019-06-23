@@ -19,6 +19,7 @@ module.exports = {
         ],
         '/tutorial/': [
             '',
+            'selector'
           ],
         '/sitemap/': [
           '',
@@ -30,6 +31,7 @@ module.exports = {
         '/': [
           ''
         ]
-      }
+      },
+      sidebarDepth: 2
     }
 }
