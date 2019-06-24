@@ -19,7 +19,19 @@ module.exports = {
         ],
         '/tutorial/': [
             '',
-            'selector'
+            'selector',
+            'text-selector',
+            'link-selector',
+            'link-popup-selector',
+            'image-selector',
+            'table-selector',
+            'element-attribute-selector',
+            'html-selector',
+            'grouped-selector',
+            'element-selector',
+            'element-scroll-down-selector',
+            'element-click-selector',
+            'css-selector'
           ],
         '/sitemap/': [
           '',

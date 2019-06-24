@@ -7,7 +7,7 @@ Web Scraper 集成在 Chrome 的开发者工具中，下图显示了如何打开
 - windows、linux：Ctrl+Shift+I 或 F12
 - mac：Command+Option+I
 
-![Open Web Scraper](./open.png)
+![Open Web Scraper](./images/open.png)
 
 ## 抓取
 ### 创建抓取配置
@@ -33,11 +33,11 @@ Web Scraper 集成在 Chrome 的开发者工具中，下图显示了如何打开
 ### 创建选择器
 下一步是创建选择器，在 `Selectors` 面板里可以增加、修改选择器以及在选择器树的不同层级中进行导航，Web Scraper 也将按照选择器树里的上下层级关系安排每个选择器执行的先后顺序。举个栗子，下面是一个新网网站，需要抓取首页上显示的所有文章：
 
-![新闻网站结构](./news-site.png)
+![新闻网站结构](./images/news-site.png)
 
 创建一个链接选择器提取首页中所有文章的链接，然后在这个链接选择器下增加一个作为子选择器的文本选择器，它将负责提取文章内容：
 
-![新闻网站抓取配置](./news-site-sitemap.png)
+![新闻网站抓取配置](./images/news-site-sitemap.png)
 
 ::: tip
 在创建选择器的过程中，注意使用元素预览（Element preview）和数据预览（Data preview）功能来确保选中了正确的元素和数据。更多关于构建选择器树的内容请阅读[选择器](/tutorial/selector.html)章节，至少要了解这些核心选择器：
@@ -49,7 +49,7 @@ Web Scraper 集成在 Chrome 的开发者工具中，下图显示了如何打开
 ### 检查选择器树
 完成选择器的创建后，可以通过选择器示意图（Selector graph）面板来检查选择器树的结构：
 
-![新闻网站选择器示意图](./news-site-selector-graph.png)
+![新闻网站选择器示意图](./images/news-site-selector-graph.png)
 
 ### 开始抓取
 打开抓取（Scrape）面板开始抓取，将弹出一个新窗口，爬虫会在其中加载页面并提取数据，抓取完成后窗口会自动关闭并弹出消息通知抓取已完成，在浏览（Browse）面板可以查看抓取到的数据，如果需要导出数据则在导出（Export data as CSV）面板操作。
