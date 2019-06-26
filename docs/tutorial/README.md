@@ -41,9 +41,9 @@ Web Scraper 集成在 Chrome 的开发者工具中，下图显示了如何打开
 
 ::: tip
 在创建选择器的过程中，注意使用元素预览（Element preview）和数据预览（Data preview）功能来确保选中了正确的元素和数据。更多关于构建选择器树的内容请阅读[选择器](/tutorial/selector.html)章节，至少要了解这些核心选择器：
-- [文本选择器](/tutorial/selector.html#文本选择器)
-- [链接选择器](/tutorial/selector.html#链接选择器)
-- [元素选择器](/tutorial/selector.html#元素选择器)
+- [文本选择器](/tutorial/text-selector.html)
+- [链接选择器](/tutorial/link-selector.html)
+- [元素选择器](/tutorial/element-selector.html)
 :::
 
 ### 检查选择器树
