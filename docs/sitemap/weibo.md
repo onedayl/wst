@@ -8,9 +8,9 @@
 - 贡献者
     - [onedayl](https://github.com/onedayl)
 - 备注
-    - 此为综合搜索，如果只需要搜索用户（即 `找人`）、文章、视频、图片或文章，请使用相应的抓取配置
-    - 支持默认搜索和高级搜索，例如微博只允许查询前 50 页结果，可以利用高级搜索限定时间段分批采集
-- 链接示例
+    - 此为综合搜索，如果只需要搜索用户（即 `找人`）、文章、视频、图片或文章，请使用相应的抓取配置。
+    - 支持默认搜索和高级搜索，例如微博只允许查询前 50 页结果，可以利用高级搜索限定时间段分批采集。
+- 示例页面
     - [默认搜索](https://s.weibo.com/weibo/keyword?topnav=1&wvr=6&b=1)
     - [高级搜索](https://s.weibo.com/weibo/keyword?q=keyword&scope=ori&haspic=1&timescope=custom:2019-06-15:2019-06-25&Refer=g)
 :::
@@ -22,7 +22,7 @@
 |user_verified|用户认证信息|
 |content|正文|
 |content_full|正文全文|
-|image|内嵌图片，数量为 1- 9，组合为 json 格式|
+|image|内嵌图片，数量 1-9，组合为 json 格式|
 |video|内嵌视频|
 |article|内嵌文章|
 |publish_time|发布时间|
@@ -42,3 +42,69 @@
 |ref_forward_count|原帖转发数|
 |ref_comment_count|原帖评论数|
 |ref_like_count|原帖点赞数|
+
+## 用户搜索
+```json
+{"_id":"weibo_user_search","startUrl":["https://s.weibo.com/user/keyword?topnav=1&wvr=6&b=1"],"selectors":[{"id":"user","type":"SelectorElement","parentSelectors":["_root","next_page"],"selector":".m-con-l .card-wrap[id=pl_user_feedList] .card","multiple":true,"delay":""},{"id":"next_page","type":"SelectorLink","parentSelectors":["_root","next_page"],"selector":"ul.s-scroll>li.cur~li a","multiple":false,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["user"],"selector":"a.name","multiple":false,"regex":"","delay":0},{"id":"verified","type":"SelectorElementAttribute","parentSelectors":["user"],"selector":".info>div a:nth-of-type(2)","multiple":false,"extractAttribute":"title","delay":0},{"id":"gender","type":"SelectorHTML","parentSelectors":["user"],"selector":"p:nth-of-type(1)","multiple":false,"regex":"female|male","delay":0},{"id":"region","type":"SelectorText","parentSelectors":["user"],"selector":"p:nth-of-type(1)","multiple":false,"regex":"[^个人主页]+","delay":0},{"id":"link","type":"SelectorElementAttribute","parentSelectors":["user"],"selector":"a.wb_url","multiple":false,"extractAttribute":"href","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["user"],"selector":".info>p>span:nth-of-type(1)","multiple":false,"regex":"\\d+","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["user"],"selector":".info>p>span:nth-of-type(2)","multiple":false,"regex":"\\d+","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["user"],"selector":".info>p>span:nth-of-type(3) a","multiple":false,"regex":"","delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 支持默认搜索和更多条件搜索，例如地区、用户性质、性别、年龄等。
+    - 微博只允许查询前 50 页结果，可以增加条件分批采集。
+    - 简介、标签等字段没有抓取，因为它们不是必然存在，也没有明确的样式可以让选择器定位，如果需要抓取用户完整信息，可搭配使用[用户详情](/sitemap/weibo.html#用户详情)配置。
+- 示例页面
+    - [默认搜索](https://s.weibo.com/user/keyword?topnav=1&wvr=6&topsug=1)
+    - [更多条件搜索](https://s.weibo.com/user/keyword?q=&nickname=keyword&gender=women&Refer=g)
+:::
+
+|字段|说明|
+|:-:|:-|
+|name|昵称|
+|verified|认证信息|
+|gender|性别|
+|region|地区信息|
+|link|主页链接|
+|following_count|关注数|
+|follower_count|粉丝数|
+|mblog_count|微博数|
+
+## 用户详情
+```json
+{"_id":"weibo_user_detail","startUrl":["https://weibo.com/p/1005051111681197/home"],"selectors":[{"id":"avatar","type":"SelectorImage","parentSelectors":["_root"],"selector":"img.photo","multiple":false,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["_root"],"selector":"h1","multiple":false,"regex":"","delay":0},{"id":"gender","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username .icon_bed a","multiple":false,"regex":"female|male","delay":0},{"id":"level","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username a[title]","multiple":false,"regex":"\\d+","delay":0},{"id":"intro","type":"SelectorText","parentSelectors":["_root"],"selector":"div.pf_intro","multiple":false,"regex":"","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(1) strong","multiple":false,"regex":"","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(2) strong","multiple":false,"regex":"","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(3) strong","multiple":false,"regex":"","delay":0},{"id":"verified","type":"SelectorText","parentSelectors":["_root"],"selector":".info span","multiple":false,"regex":"","delay":0},{"id":"random_info","type":"SelectorGroup","parentSelectors":["_root"],"selector":"span.item_text","delay":0,"extractAttribute":""},{"id":"more_info","type":"SelectorLink","parentSelectors":["_root"],"selector":"a.WB_cardmore","multiple":false,"delay":0},{"id":"birthday","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d+年\\d+月\\d+日","delay":0},{"id":"custom_link","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"(https|http)?:\\/\\/[\\w|\\.|\\/]+","delay":0},{"id":"register_time","type":"SelectorText","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"label","type":"SelectorGroup","parentSelectors":["more_info"],"selector":"a.W_btn_b","delay":0,"extractAttribute":""},{"id":"review_time","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.PCD_person_info","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"industry_category","type":"SelectorText","parentSelectors":["more_info"],"selector":".ul_detail li:last-of-type","multiple":false,"regex":"[^\\s]+\\-[^\\s]+","delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 支持默认的数字域名主页和自定义域名主页
+    - 只抓取用户信息，如需抓取用户所发的微博，请使用[用户微博列表](/sitemap/weibo.html#用户微博列表)配置
+- 示例页面
+    - [默认域名主页](https://weibo.com/p/1005051111681197)
+    - [个性域名主页](https://weibo.com/xiaopapi)
+:::
+
+|字段|说明|
+|:-:|:-|
+|avatar|头像|
+|name|昵称|
+|gender|性别|
+|level|会员等级|
+|intro|介绍|
+|following_count|关注数|
+|follower_count|粉丝数|
+|mblog_count|微博数|
+|verified|认证信息|
+|random_info|位于认证信息下的列表信息，会出现的信息不固定（地区、生日、简介等），只能统一抓取，后续提取请自行处理|
+|birthday|生日（个人账号才有）|
+|custom_link|个性域名（个人账号才有）|
+|register_time|注册时间（个人账号才有）|
+|label|标签（个人账号才有）|
+|review_time|审核时间（机构账号才有）|
+|industry_category|行业类别（机构账号才有）|
+
+
+## 用户微博列表

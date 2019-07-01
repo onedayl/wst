@@ -1,6 +1,6 @@
 module.exports = {
     title: 'WS-TRICKS',
-    description: 'Web Scraper 从入门到 666',
+    description: 'Web Scraper 从入门到高手',
     head: [
       ['link', { rel: 'icon', href: '/favicons.png'}]
     ],
