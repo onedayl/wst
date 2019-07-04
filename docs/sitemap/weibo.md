@@ -159,3 +159,54 @@
 |ref_forward_count|原帖转发数|
 |ref_comment_count|原帖评论数|
 |ref_like_count|原帖点赞数|
+
+## 用户关注列表
+```json
+{"_id":"weibo_user_following_list","startUrl":["https://weibo.com/p/1005051111681197/follow?page=[1-5]"],"selectors":[{"id":"item","type":"SelectorElement","parentSelectors":["_root"],"selector":"li.follow_item","multiple":true,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["item"],"selector":"a.S_txt1","multiple":false,"regex":"","delay":0},{"id":"link","type":"SelectorHTML","parentSelectors":["item"],"selector":".info_name","multiple":false,"regex":"\\/[\\w|\\/]+","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(1) .count a","multiple":false,"regex":"","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(2) .count a","multiple":false,"regex":"","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(3) .count a","multiple":false,"regex":"","delay":0},{"id":"region","type":"SelectorText","parentSelectors":["item"],"selector":".info_add span","multiple":false,"regex":"","delay":0},{"id":"info","type":"SelectorText","parentSelectors":["item"],"selector":".info_intro span","multiple":false,"regex":"","delay":0},{"id":"from","type":"SelectorText","parentSelectors":["item"],"selector":".info_from a","multiple":false,"regex":"","delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 此配置用于抓取当前用户关注的人或话题，话题的 `following_count` 等字段是空的，可以用来区分。
+    - 由于只允许访问前 5 页，因此只能抓取最近关注的 100 个，请保留 `startUrl` 里的 `page=[1-5]`，**手动修改到第 5 页以后的数字也是没用的**。
+- 示例页面
+    - [关注列表](https://weibo.com/p/1005051111681197/follow)
+:::
+
+|字段|说明|
+|:-:|:-|
+|name|用户昵称或话题名称|
+|link|用户主页或话题主页链接|
+|following_count|关注数|
+|follower_count|粉丝数|
+|region|地区|
+|info|用户或话题的简介|
+|from|关注来源或终端|
+
+## 用户粉丝列表
+```json
+{"_id":"weibo_user_follower_list","startUrl":["https://weibo.com/p/1005051111681197/follow?relate=fans&page=[1-5]"],"selectors":[{"id":"item","type":"SelectorElement","parentSelectors":["_root"],"selector":"li.follow_item","multiple":true,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["item"],"selector":"a.S_txt1","multiple":false,"regex":"","delay":0},{"id":"link","type":"SelectorHTML","parentSelectors":["item"],"selector":".info_name","multiple":false,"regex":"\\/[\\w|\\/]+","delay":0},{"id":"gender","type":"SelectorHTML","parentSelectors":["item"],"selector":".info_name a:last-of-type","multiple":false,"regex":"female|male","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(1) .count a","multiple":false,"regex":"","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(2) .count a","multiple":false,"regex":"","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["item"],"selector":".info_connect .conn_type:nth-of-type(3) .count a","multiple":false,"regex":"","delay":0},{"id":"region","type":"SelectorText","parentSelectors":["item"],"selector":".info_add span","multiple":false,"regex":"","delay":0},{"id":"info","type":"SelectorText","parentSelectors":["item"],"selector":".info_intro span","multiple":false,"regex":"","delay":0},{"id":"from","type":"SelectorText","parentSelectors":["item"],"selector":".info_from a","multiple":false,"regex":"","delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 此配置用于抓取关注当前用户的人。
+    - 和[用户关注列表](/sitemap/weibo.html#用户关注列表)一样，粉丝列表也只允许访问前 5 页，只能抓取最近关注的 100 个，请保留 `startUrl` 里的 `page=[1-5]`，**手动修改到第 5 页以后的数字也是没用的**。
+- 示例页面
+    - [粉丝列表](https://weibo.com/p/1005051111681197/follow?relate=fans)
+:::
+
+|字段|说明|
+|:-:|:-|
+|name|用户昵称|
+|link|用户主页链接|
+|gender|用户性别|
+|following_count|关注数|
+|follower_count|粉丝数|
+|region|地区|
+|info|用户简介|
+|from|关注来源或终端|

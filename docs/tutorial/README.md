@@ -24,7 +24,7 @@ Sitemaps 选项卡会列出已有的抓取配置，显示配置 ID 以及启动�
 ### Sitemap 选项卡
 ![](./images/sitemap-tab.png)
 
-在 Sitemaps 选项卡点击某个抓取配置或创建了新的抓取配置后会自动跳到这个选项卡，选项卡名称上会显示该配置的 ID（例如下图的 `weibo_general_search`），点击选项卡会展开菜单，可以对配置进行修改以及执行操作，包括：
+在 Sitemaps 选项卡点击某个抓取配置或创建了新的抓取配置后会自动跳到这个选项卡，选项卡名称上会显示该配置的 ID（例如上图的 `weibo_general_search`），点击选项卡会展开菜单，可以对配置进行修改以及执行操作，包括：
 - Selectors —— 对选择器进行编辑、删除和预览
 - Selector graph —— 以图形化的方式展示选择器的组合关系
 - Edit metadata —— 编辑抓取配置的元数据（ID 和启动链接）
