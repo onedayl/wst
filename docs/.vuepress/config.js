@@ -35,7 +35,9 @@ module.exports = {
           ],
         '/sitemap/': [
           '',
-          'weibo'
+          'weibo',
+          'sogou',
+          'bilibili'
         ],
         '/tool/': [
           ''

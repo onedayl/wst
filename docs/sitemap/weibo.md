@@ -74,9 +74,31 @@
 |follower_count|粉丝数|
 |mblog_count|微博数|
 
+## 热搜榜
+```json
+{"_id":"weibo_realtimehot","startUrl":["https://s.weibo.com/top/summary?cate=realtimehot"],"selectors":[{"id":"item","type":"SelectorElement","parentSelectors":["_root"],"selector":"tbody tr","multiple":true,"delay":0},{"id":"rank","type":"SelectorText","parentSelectors":["item"],"selector":"td.td-01","multiple":false,"regex":"","delay":0},{"id":"keyword","type":"SelectorText","parentSelectors":["item"],"selector":"a","multiple":false,"regex":"","delay":0},{"id":"link","type":"SelectorElementAttribute","parentSelectors":["item"],"selector":"a","multiple":false,"extractAttribute":"href","delay":0},{"id":"heat","type":"SelectorText","parentSelectors":["item"],"selector":"td.td-02 span","multiple":false,"regex":"","delay":0},{"id":"type","type":"SelectorText","parentSelectors":["item"],"selector":"i.icon-txt","multiple":false,"regex":"","delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 微博官方可能会置顶一个关键词，它的排名、热度等字段是空的，可以用来区分。
+- 示例页面
+    - [热搜榜](https://s.weibo.com/top/summary?cate=realtimehot)
+:::
+
+|字段|说明|
+|:-:|:-|
+|rank|排名|
+|keyword|关键词|
+|link|链接|
+|heat|热度|
+|type|类型（包括新、热、沸、荐）|
+
 ## 用户详情
 ```json
-{"_id":"weibo_user_detail","startUrl":["https://weibo.com/p/1005051111681197/home"],"selectors":[{"id":"avatar","type":"SelectorImage","parentSelectors":["_root"],"selector":"img.photo","multiple":false,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["_root"],"selector":"h1","multiple":false,"regex":"","delay":0},{"id":"gender","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username .icon_bed a","multiple":false,"regex":"female|male","delay":0},{"id":"level","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username a[title]","multiple":false,"regex":"\\d+","delay":0},{"id":"intro","type":"SelectorText","parentSelectors":["_root"],"selector":"div.pf_intro","multiple":false,"regex":"","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(1) strong","multiple":false,"regex":"","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(2) strong","multiple":false,"regex":"","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(3) strong","multiple":false,"regex":"","delay":0},{"id":"verified","type":"SelectorText","parentSelectors":["_root"],"selector":".info span","multiple":false,"regex":"","delay":0},{"id":"random_info","type":"SelectorGroup","parentSelectors":["_root"],"selector":"span.item_text","delay":0,"extractAttribute":""},{"id":"more_info","type":"SelectorLink","parentSelectors":["_root"],"selector":"a.WB_cardmore","multiple":false,"delay":0},{"id":"birthday","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d+年\\d+月\\d+日","delay":0},{"id":"custom_link","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"(https|http)?:\\/\\/[\\w|\\.|\\/]+","delay":0},{"id":"register_time","type":"SelectorText","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"label","type":"SelectorGroup","parentSelectors":["more_info"],"selector":"a.W_btn_b","delay":0,"extractAttribute":""},{"id":"review_time","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.PCD_person_info","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"industry_category","type":"SelectorText","parentSelectors":["more_info"],"selector":".ul_detail li:last-of-type","multiple":false,"regex":"[^\\s]+\\-[^\\s]+","delay":0}]}
+{"_id":"weibo_user_detail","startUrl":["https://weibo.com/p/1005051111681197/home"],"selectors":[{"id":"avatar","type":"SelectorImage","parentSelectors":["_root"],"selector":"img.photo","multiple":false,"delay":0},{"id":"name","type":"SelectorText","parentSelectors":["_root"],"selector":"h1","multiple":false,"regex":"","delay":0},{"id":"gender","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username .icon_bed a","multiple":false,"regex":"female|male","delay":0},{"id":"level","type":"SelectorHTML","parentSelectors":["_root"],"selector":".pf_username a[title]","multiple":false,"regex":"\\d+","delay":0},{"id":"intro","type":"SelectorText","parentSelectors":["_root"],"selector":"div.pf_intro","multiple":false,"regex":"","delay":0},{"id":"oid","type":"SelectorHTML","parentSelectors":["_root"],"selector":".btn_bed","multiple":false,"regex":"\\d{7,12}","delay":0},{"id":"following_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(1) strong","multiple":false,"regex":"","delay":0},{"id":"follower_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(2) strong","multiple":false,"regex":"","delay":0},{"id":"mblog_count","type":"SelectorText","parentSelectors":["_root"],"selector":"td:nth-of-type(3) strong","multiple":false,"regex":"","delay":0},{"id":"verified","type":"SelectorText","parentSelectors":["_root"],"selector":".info span","multiple":false,"regex":"","delay":0},{"id":"random_info","type":"SelectorGroup","parentSelectors":["_root"],"selector":"span.item_text","delay":0,"extractAttribute":""},{"id":"more_info","type":"SelectorLink","parentSelectors":["_root"],"selector":"a.WB_cardmore","multiple":false,"delay":0},{"id":"birthday","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d+年\\d+月\\d+日","delay":0},{"id":"custom_link","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"(https|http)?:\\/\\/[\\w|\\.|\\/]+","delay":0},{"id":"register_time","type":"SelectorText","parentSelectors":["more_info"],"selector":"div.WB_cardwrap:nth-of-type(1) div.PCD_text_b","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"label","type":"SelectorGroup","parentSelectors":["more_info"],"selector":"a.W_btn_b","delay":0,"extractAttribute":""},{"id":"review_time","type":"SelectorHTML","parentSelectors":["more_info"],"selector":"div.PCD_person_info","multiple":false,"regex":"\\d{4}\\-\\d{2}\\-\\d{2}","delay":0},{"id":"industry_category","type":"SelectorText","parentSelectors":["more_info"],"selector":".ul_detail li:last-of-type","multiple":false,"regex":"[^\\s]+\\-[^\\s]+","delay":0}]}
 ```
 
 ::: tip
@@ -97,6 +119,7 @@
 |gender|性别|
 |level|会员等级|
 |intro|介绍|
+|oid|原始 id|
 |following_count|关注数|
 |follower_count|粉丝数|
 |mblog_count|微博数|
@@ -210,3 +233,28 @@
 |region|地区|
 |info|用户简介|
 |from|关注来源或终端|
+
+## 热门话题榜单
+```json
+{"_id":"weibo_topic_rank","startUrl":["https://d.weibo.com/231650"],"selectors":[{"id":"topic","type":"SelectorElement","parentSelectors":["_root","pagination"],"selector":"li.pt_li","multiple":true,"delay":0},{"id":"rank","type":"SelectorText","parentSelectors":["topic"],"selector":".title span","multiple":false,"regex":"\\d+","delay":0},{"id":"name","type":"SelectorText","parentSelectors":["topic"],"selector":".title a.S_txt1","multiple":false,"regex":"[^#]+","delay":0},{"id":"link","type":"SelectorElementAttribute","parentSelectors":["topic"],"selector":".title a.S_txt1","multiple":false,"extractAttribute":"href","delay":0},{"id":"category","type":"SelectorText","parentSelectors":["topic"],"selector":"a.W_btn_b","multiple":false,"regex":"","delay":0},{"id":"desc","type":"SelectorText","parentSelectors":["topic"],"selector":"div.subtitle","multiple":false,"regex":"","delay":0},{"id":"read_count","type":"SelectorText","parentSelectors":["topic"],"selector":"span.number","multiple":false,"regex":"","delay":0},{"id":"host","type":"SelectorText","parentSelectors":["topic"],"selector":"a.tlink","multiple":false,"regex":"","delay":0},{"id":"pagination","type":"SelectorLink","parentSelectors":["_root","pagination"],"selector":"a.page:nth-of-type(n+3)","multiple":true,"delay":0}]}
+```
+
+::: tip
+- 贡献者
+    - [onedayl](https://github.com/onedayl)
+- 备注
+    - 支持抓取发现页的话题榜单，包括总榜单和本地、社会、互联网等分类榜单。
+- 示例页面
+    - [总榜单](https://weibo.com/p/1005051111681197/follow?relate=fans)
+    - [互联网榜单](https://d.weibo.com/231650_ctg1_-_138#)
+:::
+
+|字段|说明|
+|:-:|:-|
+|rank|排名|
+|name|名称|
+|link|链接|
+|category|分类|
+|desc|简介|
+|read_count|阅读数|
+|host|主持人|
