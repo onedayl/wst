@@ -5,7 +5,11 @@ module.exports = {
       ['link', { rel: 'icon', href: '/favicons.png'}]
     ],
     ga: 'UA-69830079-2',
-    plugins: ['vuepress-plugin-code-copy'],
+    plugins: [
+      '@vuepress/back-to-top',
+      'code-copy'
+    ],
+    dest: 'public',
     themeConfig: {
       nav: [
         { text: '快速上手', link: '/guide/' },
