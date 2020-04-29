@@ -42,7 +42,8 @@ module.exports = {
           '',
           'weibo',
           'sogou',
-          'bilibili'
+          'bilibili',
+          'nbs',
         ],
         '/tool/': [
           ''
