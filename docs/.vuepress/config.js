@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'WS-TRICKS',
+    title: 'Web Scraper Tricks',
     description: 'Web Scraper 从入门到高手',
     head: [
       ['link', { rel: 'icon', href: '/favicons.png'}]
@@ -44,6 +44,7 @@ module.exports = {
           'sogou',
           'bilibili',
           'nbs',
+          'dianping'
         ],
         '/tool/': [
           ''

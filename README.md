@@ -4,4 +4,4 @@
 - 分享常见网站的 sitemap（逐步添加）
 - 对 Web Scraper 进行增强和补足的小工具
 
-请访问 [ws-tricks.com](http://ws-tricks.com) 进一步了解~
+请访问 [Web Scraper Tricks](https://wst.vercel.app) 进一步了解~
