@@ -44,7 +44,8 @@ module.exports = {
           'sogou',
           'bilibili',
           'nbs',
-          'dianping'
+          'dianping',
+          'ctrip'
         ],
         '/tool/': [
           ''
